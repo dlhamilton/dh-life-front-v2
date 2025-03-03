@@ -7,7 +7,7 @@ const DiaryEntries = () => {
   useEffect(() => {
     const fetchEntries = async () => {
       try {
-        const res = await api.get("diary-entries/");
+        const res = await api.get("api/diary-entries/");
         setEntries(res.data);
       } catch (error) {
         console.error("Error fetching diary entries", error);

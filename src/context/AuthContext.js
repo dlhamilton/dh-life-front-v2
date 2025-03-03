@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (credentials) => {
     try {
-      const res = await api.post("api/auth/token", credentials, {
+      const res = await api.post("api/auth/token/", credentials, {
         withCredentials: true,
       });
 

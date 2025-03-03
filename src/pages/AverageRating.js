@@ -10,7 +10,7 @@ const AverageRating = () => {
   const fetchAverageRating = async () => {
     if (!dates.start_date || !dates.end_date) return;
     try {
-      const res = await api.get(`focus-areas/${id}/average-rating/`, {
+      const res = await api.get(`api/focus-areas/${id}/average-rating/`, {
         params: dates,
       });
       setAverage(res.data.average_rating);

@@ -6,7 +6,7 @@ const FocusAreas = () => {
 
   useEffect(() => {
     const fetchFocusAreas = async () => {
-      const res = await api.get("focus-areas/");
+      const res = await api.get("api/focus-areas/");
       setFocusAreas(res.data);
     };
     fetchFocusAreas();

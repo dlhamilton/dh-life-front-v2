@@ -8,3 +8,12 @@ export const api = axios.create({
   headers: { "Content-Type": "application/json" },
   withCredentials: true,
 });
+
+// Attach token to requests
+api.interceptors.request.use((config) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user?.token) {
+    config.headers.Authorization = `Token ${user.token}`;
+  }
+  return config;
+});
