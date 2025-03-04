@@ -7,6 +7,8 @@ import FocusAreas from "./pages/FocusAreas";
 import DiaryEntries from "./pages/DiaryEntries";
 import EntryByDate from "./pages/EntryByDate";
 import AverageRating from "./pages/AverageRating";
+import FocusAreaDetail from "./pages/FocusAreaDetail";
+import DiaryEntryDetail from "./pages/DiaryEntryDetail";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -26,6 +28,8 @@ function App() {
               <Route path="/diary-entries" element={<DiaryEntries />} />
               <Route path="/entries/:date" element={<EntryByDate />} />
               <Route path="/average-rating/:id" element={<AverageRating />} />
+              <Route path="/focus-areas/:id" element={<FocusAreaDetail />} />
+              <Route path="/diary-entries/:id" element={<DiaryEntryDetail />} />
             </Route>
           </Routes>
         </div>
