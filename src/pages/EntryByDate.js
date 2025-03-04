@@ -9,7 +9,7 @@ const EntryByDate = () => {
   useEffect(() => {
     const fetchEntries = async () => {
       try {
-        const res = await api.get(`api/diary-entries/date/${date}/`);
+        const res = await api.get(`api/head/diary-entries/date/${date}/`);
         setEntries(res.data);
       } catch (error) {
         console.error("Error fetching diary entries for date", error);

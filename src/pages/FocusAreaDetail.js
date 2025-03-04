@@ -13,7 +13,7 @@ const FocusAreaDetail = () => {
 
   const fetchFocusArea = async () => {
     try {
-      const res = await api.get(`api/focus-areas/${id}/`);
+      const res = await api.get(`api/head/focus-areas/${id}/`);
       setFocusArea(res.data);
     } catch (error) {
       console.error("Error fetching focus area", error);
@@ -22,7 +22,7 @@ const FocusAreaDetail = () => {
 
   const updateFocusArea = async () => {
     try {
-      await api.put(`api/focus-areas/${id}/`, focusArea);
+      await api.put(`api/head/focus-areas/${id}/`, focusArea);
       navigate("/focus-areas");
     } catch (error) {
       console.error("Error updating focus area", error);
@@ -31,7 +31,7 @@ const FocusAreaDetail = () => {
 
   const deleteFocusArea = async () => {
     try {
-      await api.delete(`api/focus-areas/${id}/`);
+      await api.delete(`api/head/focus-areas/${id}/`);
       navigate("/focus-areas");
     } catch (error) {
       console.error("Error deleting focus area", error);

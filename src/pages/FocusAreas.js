@@ -21,7 +21,7 @@ const FocusAreas = () => {
 
   const fetchFocusAreas = async () => {
     try {
-      const res = await api.get("api/focus-areas/");
+      const res = await api.get("api/head/focus-areas/");
       setFocusAreas(res.data);
     } catch (error) {
       console.error("Error fetching focus areas", error);
@@ -30,7 +30,7 @@ const FocusAreas = () => {
 
   const createFocusArea = async () => {
     try {
-      await api.post("api/focus-areas/", { name: newFocusArea });
+      await api.post("api/head/focus-areas/", { name: newFocusArea });
       setNewFocusArea("");
       fetchFocusAreas();
     } catch (error) {
