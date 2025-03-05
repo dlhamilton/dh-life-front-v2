@@ -43,6 +43,10 @@ const DiaryEntries = () => {
     navigate(`/diary-entries/${id}`);
   };
 
+  const addNewEntry = (focusAreaId) => {
+    navigate(`/diary-entries/new?focus_area=${focusAreaId}&date=${format(selectedDate, "yyyy-MM-dd")}`);
+  };
+
   return (
     <div className="container">
       <h2>Your Diary Entries</h2>
@@ -75,7 +79,12 @@ const DiaryEntries = () => {
                   </button>
                 </div>
               ) : (
-                <p className="text-muted">No entry for this focus area on {format(selectedDate, "yyyy-MM-dd")}.</p>
+                <div>
+                  <p className="text-muted">No entry for this focus area on {format(selectedDate, "yyyy-MM-dd")}.</p>
+                  <button className="btn btn-success" onClick={() => addNewEntry(focusArea.id)}>
+                    Add Entry
+                  </button>
+                </div>
               )}
             </div>
           );
