@@ -5,15 +5,16 @@
     "bootstrap": "^5.3.3",
     "date-fns": "^4.1.0",
     "react-datepicker": "^8.1.0",
+    "react-modal": "^3.16.3",
     "react-router-dom": "^7.2.0",
     "react-scripts": "^5.0.1",
     "serve": "^14.2.4"
   },
   "scripts": {
-  "start": "serve -s build",
-  "build": "GENERATE_SOURCEMAP=false react-scripts build",
-  "postinstall": "npm run build",
-  "startdev": "GENERATE_SOURCEMAP=false react-scripts start"
+    "start": "serve -s build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "postinstall": "npm run build",
+    "startdev": "GENERATE_SOURCEMAP=false react-scripts start"
   },
   "browserslist": {
     "production": [
