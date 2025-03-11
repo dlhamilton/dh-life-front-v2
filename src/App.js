@@ -1,14 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
-import FocusAreas from "./pages/FocusAreas";
-import DiaryEntries from "./pages/DiaryEntries";
-import EntryByDate from "./pages/EntryByDate";
-import AverageRating from "./pages/AverageRating";
-import FocusAreaDetail from "./pages/FocusAreaDetail";
-import DiaryEntryDetail from "./pages/DiaryEntryDetail";
+import FocusAreas from "./pages/headcase/FocusAreas";
+import DiaryEntries from "./pages/headcase/DiaryEntries";
+import EntryByDate from "./pages/headcase/EntryByDate";
+import AverageRating from "./pages/headcase/AverageRating";
+import FocusAreaDetail from "./pages/headcase/FocusAreaDetail";
+import DiaryEntryDetail from "./pages/headcase/DiaryEntryDetail";
+import WorkoutsPage from "./pages/workout/WorkoutsPage";
+import WorkoutDetail from "./pages/workout/WorkoutDetail";
+import CreateWorkout from "./pages/workout/CreateWorkout";
+import ExercisesPage from "./pages/workout/ExercisesPage";
+
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -20,7 +25,10 @@ function App() {
         <Navbar />
         <div className="container mt-4">
           <Routes>
-            <Route path="/" element={<Navigate to="/dashboard" />} />
+            {/* Redirect root to Dashboard or Login based on auth */}
+            <Route path="/" element={<AuthRedirect />} />
+            
+            {/* Public Route for Login */}
             <Route path="/login" element={<Login />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/dashboard" element={<Dashboard />} />
@@ -30,6 +38,13 @@ function App() {
               <Route path="/average-rating/:id" element={<AverageRating />} />
               <Route path="/focus-areas/:id" element={<FocusAreaDetail />} />
               <Route path="/diary-entries/:id" element={<DiaryEntryDetail />} />
+
+              {/* new pages */}
+              <Route path="/workouts" element={<WorkoutsPage />} />
+              <Route path="/workout-details/:id" element={<WorkoutDetail />} />
+              <Route path="/create-workout" element={<CreateWorkout />} />
+              <Route path="/exercises" element={<ExercisesPage />} />
+              
             </Route>
           </Routes>
         </div>
@@ -37,5 +52,11 @@ function App() {
     </AuthProvider>
   );
 }
+
+// Redirect based on authentication status
+const AuthRedirect = () => {
+  const { user } = useAuth();
+  return user ? <Navigate to="/dashboard" replace /> : <Navigate to="/login" replace />;
+};
 
 export default App;

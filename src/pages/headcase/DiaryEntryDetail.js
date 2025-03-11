@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, useSearchParams } from "react-router-dom";
-import { api } from "../utils/api";
+import { api } from "../../utils/api";
 
 const DiaryEntryDetail = () => {
   const { id } = useParams();

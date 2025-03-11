@@ -9,6 +9,7 @@ const Dashboard = () => {
       <ul>
         <li><Link to="/focus-areas">View Focus Areas</Link></li>
         <li><Link to="/diary-entries">View Diary Entries</Link></li>
+        <li><Link to="/workouts">View Workouts</Link></li>
       </ul>
     </div>
   );
