@@ -83,7 +83,7 @@ const WorkoutDetail = () => {
   const saveExercise = async () => {
     try {
       if (currentExercise.id) {
-        await api.put(`/api/train/workout-exercises/${currentExercise.id}/`, currentExercise);
+        await api.put(`/api/train/workout-exercises/${currentExercise.id}/`, { ...currentExercise, workout: id });
       } else {
         await api.post("/api/train/workout-exercises/", { ...currentExercise, workout: id });
       }
