@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../utils/api";
+import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root"); // Required for accessibility
@@ -23,6 +24,8 @@ const WorkoutDetail = () => {
     fetchWorkoutDetails();
     fetchAllExercises(); // Load all available exercises for lookup
   }, []);
+
+  const navigate = useNavigate();
 
   const fetchWorkoutDetails = async () => {
     try {
@@ -104,6 +107,10 @@ const WorkoutDetail = () => {
     }
   };
 
+  const goToWorkoutLog = (id) => {
+    navigate(`/log-workout/${id}`);
+  };
+
   if (!workout) return <p>Loading...</p>;
 
   return (
@@ -115,6 +122,9 @@ const WorkoutDetail = () => {
 
       <button className="btn btn-success my-4" onClick={() => openModal()}>
         + Add Exercise
+      </button>
+      <button className="btn btn-info my-4" onClick={() => goToWorkoutLog(id)}>
+        Log
       </button>
 
       <h3 className="text-xl font-semibold mt-4 mb-2">Workout Routine</h3>

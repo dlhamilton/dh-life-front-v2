@@ -1,0 +1,76 @@
+/* Container */
+.workout-logs-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  /* Title */
+  h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Workout Session */
+  .workout-session {
+    background: #f8f9fa;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border-left: 5px solid #2980b9;
+  }
+  
+  h3 {
+    font-size: 20px;
+    color: #2980b9;
+    margin-bottom: 5px;
+  }
+  
+  .date {
+    font-size: 16px;
+    color: #7f8c8d;
+    font-weight: normal;
+  }
+  
+  h4 {
+    font-size: 18px;
+    color: #34495e;
+    margin-top: 10px;
+  }
+  
+  /* Exercise List */
+  .exercise-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .exercise-item {
+    background: #e9ecef;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .exercise-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .exercise-item span {
+    margin-right: 10px;
+  }
+  
+  /* Horizontal Line */
+  hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin-top: 15px;
+  }

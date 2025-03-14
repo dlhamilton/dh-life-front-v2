@@ -15,6 +15,7 @@ const Navbar = () => {
               <Link className="nav-link" to="/focus-areas">Focus Areas</Link>
               <Link className="nav-link" to="/diary-entries">Diary Entries</Link>
               <Link className="nav-link" to="/workouts">Workouts</Link>
+              <Link className="nav-link" to="/workout-logs">Workout Logs</Link>
               <button className="btn btn-danger ms-2" onClick={logout}>Logout</button>
             </>
           ) : (
