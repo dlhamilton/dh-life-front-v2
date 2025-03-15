@@ -111,6 +111,10 @@ const WorkoutDetail = () => {
     navigate(`/log-workout/${id}`);
   };
 
+  const goToWorkoutTimer = (id) => {
+    navigate(`/workout-timer/${id}`);
+  };
+
   if (!workout) return <p>Loading...</p>;
 
   return (
@@ -125,6 +129,9 @@ const WorkoutDetail = () => {
       </button>
       <button className="btn btn-info my-4" onClick={() => goToWorkoutLog(id)}>
         Log
+      </button>
+      <button className="btn btn-primary my-4" onClick={() => goToWorkoutTimer(id)}>
+        Do Workout
       </button>
 
       <h3 className="text-xl font-semibold mt-4 mb-2">Workout Routine</h3>
