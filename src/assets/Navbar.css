@@ -1,0 +1,135 @@
+/* --- General Navbar Styling --- */
+.navbar {
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Navbar Container */
+.navbar-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Brand (Logo) */
+.brand {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.brand:hover {
+    color: #f39c12;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-item {
+    font-size: 16px;
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nav-item:hover {
+    background-color: #34495e;
+}
+
+/* Login & Logout Buttons */
+.login-btn, .logout-btn {
+    background-color: #f39c12;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.login-btn:hover, .logout-btn:hover {
+    background-color: #e67e22;
+}
+
+/* --- 🔹 Burger Menu Styling 🔹 --- */
+.burger-menu {
+    display: none; /* Hidden on large screens */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Burger Menu Open State */
+.burger-menu.open .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger-menu.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.open .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .burger-menu {
+      display: flex; /* Show burger menu */
+    }
+  
+    .nav-links {
+      display: none; /* Hide links initially */
+      position: fixed;  /* ✅ Keeps menu in place, doesn't shift content */
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #2c3e50;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;  /* ✅ Ensures it's above other content */
+      transition: transform 0.3s ease-in-out; /* Smooth open/close */
+      transform: translateY(-100%); /* ✅ Hides menu when closed */
+    }
+  
+    .nav-links.open {
+      display: flex;
+      transform: translateY(0); /* ✅ Shows menu when open */
+    }
+  
+    .nav-item, .login-btn, .logout-btn {
+      width: 100%;
+      text-align: center;
+      padding: 12px 0;
+    }
+}

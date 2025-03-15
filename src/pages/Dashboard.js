@@ -10,6 +10,7 @@ const Dashboard = () => {
         <li><Link to="/focus-areas">View Focus Areas</Link></li>
         <li><Link to="/diary-entries">View Diary Entries</Link></li>
         <li><Link to="/workouts">View Workouts</Link></li>
+        <li><Link to="/workout-logs">View Workout Logs</Link></li>
       </ul>
     </div>
   );
