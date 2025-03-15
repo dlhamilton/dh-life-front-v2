@@ -15,6 +15,7 @@ import CreateWorkout from "./pages/workout/CreateWorkout";
 import ExercisesPage from "./pages/workout/ExercisesPage";
 import LogWorkout from "./pages/workout/LogWorkout";
 import WorkoutLogs from "./pages/workout/WorkoutLogs";
+import WorkoutTimer from "./pages/workout/WorkoutTimer";
 
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -32,6 +33,7 @@ function App() {
             
             {/* Public Route for Login */}
             <Route path="/login" element={<Login />} />
+            <Route path="/workout-timer" element={<WorkoutTimer />} />  
             <Route element={<ProtectedRoute />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/focus-areas" element={<FocusAreas />} />
@@ -47,7 +49,7 @@ function App() {
               <Route path="/create-workout" element={<CreateWorkout />} />
               <Route path="/exercises" element={<ExercisesPage />} />
               <Route path="/log-workout/:id" element={<LogWorkout />} />
-              <Route path="/workout-logs" element={<WorkoutLogs />} />  
+              <Route path="/workout-logs" element={<WorkoutLogs />} />
             </Route>
           </Routes>
         </div>
