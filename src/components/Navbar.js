@@ -22,6 +22,7 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+        <Link className="nav-item" to="/workout-timer" onClick={() => setMenuOpen(false)}>Workout Timer</Link>
           {user ? (
             <>
               <Link className="nav-item" to="/focus-areas" onClick={() => setMenuOpen(false)}>Focus Areas</Link>

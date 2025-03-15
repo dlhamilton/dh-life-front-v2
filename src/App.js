@@ -50,6 +50,7 @@ function App() {
               <Route path="/exercises" element={<ExercisesPage />} />
               <Route path="/log-workout/:id" element={<LogWorkout />} />
               <Route path="/workout-logs" element={<WorkoutLogs />} />
+              <Route path="/workout-timer/:id" element={<WorkoutTimer />} />  
             </Route>
           </Routes>
         </div>
