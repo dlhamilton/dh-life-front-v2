@@ -74,3 +74,34 @@
     background: #ccc;
     margin-top: 15px;
   }
+
+  .edit-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  
+  .edit-mode input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .log-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-btn, .save-btn, .cancel-btn, .delete-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .edit-btn { background: #f39c12; color: white; }
+  .save-btn { background: #27ae60; color: white; }
+  .cancel-btn { background: #95a5a6; color: white; }
+  .delete-btn { background: #e74c3c; color: white; }
