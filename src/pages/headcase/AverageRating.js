@@ -2,10 +2,24 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../utils/api";
 
+const getCurrentMonthDates = () => {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), 1);
+  const end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+
+  const format = (date) => date.toISOString().split("T")[0]; // yyyy-mm-dd
+
+  return {
+    start_date: format(start),
+    end_date: format(end),
+  };
+};
+
 const AverageRating = () => {
   const { id } = useParams();
   const [average, setAverage] = useState(null);
-  const [dates, setDates] = useState({ start_date: "", end_date: "" });
+  const [focusArea, setFocusArea] = useState(null);
+  const [dates, setDates] = useState(getCurrentMonthDates());
 
   const fetchAverageRating = async () => {
     if (!dates.start_date || !dates.end_date) return;
@@ -14,14 +28,19 @@ const AverageRating = () => {
         params: dates,
       });
       setAverage(res.data.average_rating);
+      setFocusArea(res.data.focus_area);
     } catch (error) {
       console.error("Error fetching average rating", error);
     }
   };
 
+  useEffect(() => {
+    fetchAverageRating();
+  }, []);
+
   return (
     <div className="container">
-      <h2 className="my-4">Average Rating for Focus Area</h2>
+      <h2 className="my-4">Average Rating for {focusArea}</h2>
       <div className="mb-3">
         <label className="form-label">Start Date:</label>
         <input type="date" className="form-control" onChange={(e) => setDates({ ...dates, start_date: e.target.value })} />
