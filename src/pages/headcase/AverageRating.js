@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../utils/api";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 const getCurrentMonthDates = () => {
   const now = new Date();
@@ -108,7 +117,32 @@ const AverageRating = () => {
         </p>
       )}
 
-      {ratings.length > 0 && (
+{ratings.length > 0 && (
+  <div className="mt-4">
+    <h4>Ratings Over Time</h4>
+
+    <ResponsiveContainer width="100%" height={300}>
+      <LineChart data={ratings}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="date" />
+        <YAxis domain={[0, 10]} />
+        <Tooltip />
+        <Line type="monotone" dataKey="rating" stroke="#007bff" />
+      </LineChart>
+    </ResponsiveContainer>
+
+    <h5 className="mt-4">Ratings List</h5>
+    <ul className="list-group">
+      {ratings.map((r) => (
+        <li key={r.id} className="list-group-item">
+          {r.date} – Rating: {r.rating}
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+      {/* {ratings.length > 0 && (
         <div className="mt-4">
           <h4>Ratings Between Dates</h4>
           <ul className="list-group">
@@ -119,7 +153,7 @@ const AverageRating = () => {
             ))}
           </ul>
         </div>
-      )}
+      )} */}
 
       {entries.length > 0 && (
         <div className="mt-4">
