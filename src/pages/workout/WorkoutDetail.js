@@ -14,10 +14,10 @@ const WorkoutDetail = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentExercise, setCurrentExercise] = useState({
     exercise: "",
-    reps: "",
-    sets: "",
-    duration_seconds: "",
-    order_index: "",
+    reps: null,
+    sets: null,
+    duration_seconds: null,
+    order_index: null,
   });
 
   useEffect(() => {
@@ -51,18 +51,18 @@ const WorkoutDetail = () => {
       setCurrentExercise({
         id: exercise.id,
         exercise: exercise.exercise.id, // Store only the exercise ID
-        reps: exercise.reps || "",
-        sets: exercise.sets || "",
-        duration_seconds: exercise.duration_seconds || "",
-        order_index: exercise.order_index || "",
+        reps: exercise.reps || null,
+        sets: exercise.sets || null,
+        duration_seconds: exercise.duration_seconds || null,
+        order_index: exercise.order_index || null,
       });
     } else {
       setCurrentExercise({
         exercise: "",
-        reps: "",
-        sets: "",
-        duration_seconds: "",
-        order_index: "",
+        reps: null,
+        sets: null,
+        duration_seconds: null,
+        order_index: null,
       });
     }
     setModalIsOpen(true);
@@ -72,10 +72,10 @@ const WorkoutDetail = () => {
     setModalIsOpen(false);
     setCurrentExercise({
       exercise: "",
-      reps: "",
-      sets: "",
-      duration_seconds: "",
-      order_index: "",
+      reps: null,
+      sets: null,
+      duration_seconds: null,
+      order_index: null,
     });
   };
 
