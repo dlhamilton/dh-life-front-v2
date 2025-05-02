@@ -28,6 +28,7 @@ const Navbar = () => {
               <Link className="nav-item" to="/focus-areas" onClick={() => setMenuOpen(false)}>Focus Areas</Link>
               <Link className="nav-item" to="/diary-entries" onClick={() => setMenuOpen(false)}>Diary Entries</Link>
               <Link className="nav-item" to="/workouts" onClick={() => setMenuOpen(false)}>Workouts</Link>
+              <Link className="nav-item" to="/exercises" onClick={() => setMenuOpen(false)}>Exercises</Link>
               <Link className="nav-item" to="/workout-logs" onClick={() => setMenuOpen(false)}>Workout Logs</Link>
               <button className="logout-btn" onClick={() => { logout(); setMenuOpen(false); }}>Logout</button>
             </>
