@@ -19,6 +19,8 @@ const WorkoutDetail = () => {
     duration_seconds: null,
     order_index: null,
   });
+const [searchTerm, setSearchTerm] = useState("");
+
 
   useEffect(() => {
     fetchWorkoutDetails();
@@ -115,6 +117,10 @@ const WorkoutDetail = () => {
     navigate(`/workout-timer/${id}`);
   };
 
+  const filteredExercises = allExercises.filter((exercise) =>
+    exercise.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (!workout) return <p>Loading...</p>;
 
   return (
@@ -169,6 +175,14 @@ const WorkoutDetail = () => {
         <div className="p-4">
           <h3>{currentExercise.id ? "Edit Exercise" : "Add Exercise"}</h3>
 
+          <input
+            type="text"
+            placeholder="Search exercises..."
+            className="form-control mb-2"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+
           {/* Dropdown for Selecting Exercise */}
           <select
             name="exercise"
@@ -177,7 +191,7 @@ const WorkoutDetail = () => {
             onChange={handleExerciseChange}
           >
             <option value="">--Select Exercise--</option>
-            {allExercises.map((exercise) => (
+            {filteredExercises.map((exercise) => (
               <option key={exercise.id} value={exercise.id}>
                 {exercise.name}
               </option>
