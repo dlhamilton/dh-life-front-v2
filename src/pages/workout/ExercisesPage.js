@@ -12,6 +12,21 @@ const ExercisesPage = () => {
   const [sortKey, setSortKey] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const EQUIPMENT_CHOICES = [
+    "Dumbbell",
+    "Kettlebell",
+    "Barbell",
+    "Bodyweight",
+    "Machine",
+    "Resistance Band",
+  ];
+  
+  const EXERCISE_TYPE_CHOICES = [
+    "Strength",
+    "HIIT",
+    "Cardio",
+    "Core",
+  ];
 
   useEffect(() => {
     fetchExercises();
@@ -110,22 +125,32 @@ const ExercisesPage = () => {
                 required
                 className="w-full border p-2"
               />
-              <input
-                type="text"
-                placeholder="Equipment"
+             <select
                 value={formData.equipment}
                 onChange={(e) => setFormData({ ...formData, equipment: e.target.value })}
                 required
                 className="w-full border p-2"
-              />
-              <input
-                type="text"
-                placeholder="Type"
+              >
+                <option value="">-- Select Equipment --</option>
+                {EQUIPMENT_CHOICES.map((equipment) => (
+                  <option key={equipment} value={equipment}>
+                    {equipment}
+                  </option>
+                ))}
+              </select>
+              <select
                 value={formData.exercise_type}
                 onChange={(e) => setFormData({ ...formData, exercise_type: e.target.value })}
                 required
                 className="w-full border p-2"
-              />
+              >
+                <option value="">-- Select Type --</option>
+                {EXERCISE_TYPE_CHOICES.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
               <div className="flex justify-between mt-4">
                 <button
                   type="button"
