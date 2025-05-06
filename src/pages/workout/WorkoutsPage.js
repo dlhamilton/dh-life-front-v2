@@ -80,6 +80,8 @@ const WorkoutsPage = () => {
     day: "",
     duration_minutes: "",
   });
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortKey, setSortKey] = useState("");
 
   const navigate = useNavigate();
 
@@ -169,7 +171,23 @@ const WorkoutsPage = () => {
   // const filteredWorkouts = selectedExercise
   //   ? workouts.filter((workout) => workout.exercises?.some((ex) => ex.id === Number(selectedExercise)))
   //   : workouts;
-  const filteredWorkouts = workouts;
+
+  // const filteredWorkouts = workouts;
+
+  const filteredWorkouts = workouts
+  .filter((workout) =>
+    [workout.name, workout.description]
+      .join(" ")
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase())
+  )
+  .sort((a, b) => {
+    if (!sortKey) return 0;
+    if (typeof a[sortKey] === "number") {
+      return a[sortKey] - b[sortKey];
+    }
+    return String(a[sortKey]).localeCompare(String(b[sortKey]));
+  });
 
   return (
     <div className="container">
@@ -187,6 +205,27 @@ const WorkoutsPage = () => {
           </option>
         ))}
       </select> */}
+
+      <div className="d-flex gap-3 mb-3">
+        <input
+          type="text"
+          placeholder="Search workouts..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="form-control"
+        />
+
+        <select
+          value={sortKey}
+          onChange={(e) => setSortKey(e.target.value)}
+          className="form-select w-auto"
+        >
+          <option value="">Sort by</option>
+          <option value="name">Name</option>
+          <option value="week">Week</option>
+          <option value="duration_minutes">Duration</option>
+        </select>
+      </div>
 
       <ul className="list-group">
         {filteredWorkouts.map((workout) => (
