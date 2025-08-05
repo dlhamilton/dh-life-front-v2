@@ -26,6 +26,7 @@ const ExercisesPage = () => {
     "HIIT",
     "Cardio",
     "Core",
+    "Explosive",
   ];
 
   useEffect(() => {
